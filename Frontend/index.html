@@ -10,7 +10,7 @@ body {
   margin: 0 auto;
   max-width: 1200px;
   padding: 0 20px;
-  overflow:hidden
+  overflow:auto
 }
 
 #chatArea {
@@ -36,7 +36,7 @@ body {
 </center>
 
 
-<div id="chatArea" style="background-image: url('https://i.redd.it/qwd83nc4xxf41.jpg')">
+<div id="chatArea" style="background-image: url('https://i.redd.it/qwd83nc4xxf41.jpg');background-repeat: repeat-y;overflow: auto">
     <form>
 
         <label for="transcript" style="font-family:'Courier New', cursive, sans-serif; font-size: 25px;">Type Below or Speak:</label>
@@ -151,7 +151,7 @@ function submitChat(e) {
 
 
 function submitUpload(evt) {
-  alert("called")
+  
   var filesSelected = document.getElementById("img_uploaded").files;
   var labels = document.getElementById("customlabels").value;
   var error = document.getElementById("error");
@@ -197,6 +197,7 @@ function submitUpload(evt) {
             apigClient.uploadImagePost(params, body)
             .then(function(result){
               console.log('went to then')
+              alert("Image Uploaded")
             }).catch( function(result){
               console.log('went to catch')
             });
